@@ -6,7 +6,7 @@ tedious form that needs to be filled out each month, which includes entering my 
 ## Getting Started
 This can be modified for other uses, but currently my electric company is QuadLogic, and they use Starnik as their portal.
 
-### Prerequisites
+### Prerequisites and Installation notes
 Just need a machine with:
 Python3
 selenium
@@ -15,6 +15,19 @@ configparser
 You should also make sure you have Chromium in your PATH variable.  It can be downloaded here: https://sites.google.com/a/chromium.org/chromedriver/getting-started
 
 I added ~/bin/chromedriver to my path
+
+Finally, you need an external config file (I put mine in /usr/local/etc/python_config.txt) to store the key/value pairs used by the program via Config Parser.  The format of the file should be as follows:
+[Electric_Bill]
+username=someusername
+password=somepassword
+routing=somerouting
+account=someaccount
+bankName=someBankNameSpacesAllowed
+accountName=FullNameOfAccountHolder
+firstName=firstNameOfAccountHolder
+lastName=lastNameOfAccountHolder
+phone=(123)456-8888
+email=someEmailAddress
 ```
 ex. pip3 install selenium, pip3 install configparser
 ```

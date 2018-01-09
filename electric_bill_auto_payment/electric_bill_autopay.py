@@ -57,10 +57,6 @@ browser.find_element_by_name('ctl04$ctl00$txtConfirmABACode').send_keys(config.g
 browser.find_element_by_name('ctl04$ctl00$txtAccountNumber').send_keys(config.get("Electric_Bill","account"))
 browser.find_element_by_name('ctl04$ctl00$txtConfirmAccountNumber').send_keys(config.get("Electric_Bill","account"))
 
-#get the balance due from the form and populate the full balance due for what I will pay.
-balance_due = browser.find_element_by_id('ctl04_ctl00_lblCheckCurrentBalance').text
-browser.find_element_by_name('ctl04$ctl00$txtCheckAmount').send_keys(balance_due[1:])
-
 #click continue
 browser.find_element_by_name('ctl04$ctl00$btnSubmit').click()
 
@@ -71,7 +67,7 @@ browser.switch_to_alert().accept()
 browser.find_element_by_name('ctl04$ctl00$chkAgree').click()
 
 #confirm the payment.  Sleep 30 seconds before doing so so that I can review.
-sleep(30)
+sleep(15)
 browser.find_element_by_name('ctl04$ctl00$btnConfirm').click()
 
 #closes the popup.  Might need to get rid of this if I automate the confirm and the window closes as part of that.
@@ -79,6 +75,9 @@ browser.close()
 
 #now switch back to the main window and log out and close the main window
 browser.switch_to_window(browser.window_handles[0])
+
+#review 
+sleep(10)
 
 #log out
 browser.find_element_by_id('menu2').click()

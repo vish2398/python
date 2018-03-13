@@ -67,11 +67,14 @@ browser.switch_to_alert().accept()
 browser.find_element_by_name('ctl04$ctl00$chkAgree').click()
 
 #confirm the payment.  Sleep 30 seconds before doing so so that I can review.
-sleep(15)
+sleep(30)
 browser.find_element_by_name('ctl04$ctl00$btnConfirm').click()
 
+#accepts the alert box popup.
+browser.switch_to_alert().accept()
+
 #closes the popup.  Might need to get rid of this if I automate the confirm and the window closes as part of that.
-browser.close()
+#browser.close()
 
 #now switch back to the main window and log out and close the main window
 browser.switch_to_window(browser.window_handles[0])

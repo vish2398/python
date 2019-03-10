@@ -27,11 +27,11 @@ browser = webdriver.Chrome()
 browser.get('https://www.starnik.net/UtilityTrakR/UT3/Current/R_Default.aspx')
 
 #get elements and enter username and password to login
-browser.find_element_by_name('ctl04$login$ctl00$txtUsername').send_keys(config.get("Electric_Bill","username"))
-browser.find_element_by_name('ctl04$login$ctl00$txtPassword').send_keys(config.get("Electric_Bill","password"))
+browser.find_element_by_name('ctl04$ctl00$txtUserName').send_keys(config.get("Electric_Bill","username"))
+browser.find_element_by_name('ctl04$ctl00$txtPassword').send_keys(config.get("Electric_Bill","password"))
 
 #click login button to login to the site.
-browser.find_element_by_name("ctl04$login$ctl00$btnLogin").click()
+browser.find_element_by_name("ctl04$ctl00$btnLogin").click()
 
 #navigate to the pay bill link
 browser.get('https://www.starnik.net/UtilityTrakR/UT3/Current/RP_PayBill.aspx');
